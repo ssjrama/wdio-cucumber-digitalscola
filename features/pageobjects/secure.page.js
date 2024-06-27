@@ -8,8 +8,8 @@ class SecurePage extends Page {
     /**
      * define selectors using getter methods
      */
-    get flashAlert () {
-        return $('#flash');
+    get homeItem () {
+        return $('#item_4_title_link');
     }
 }
 

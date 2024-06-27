@@ -4,9 +4,8 @@ Feature: The Internet Guinea Pig Website
 
     Given I am on the login page
     When I login with <username> and <password>
-    Then I should see a flash message saying <message>
+    Then I should see a home item with the name <message>
 
     Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+      | username      | password     | message             |
+      | standard_user | secret_sauce | Sauce Labs Backpack |
