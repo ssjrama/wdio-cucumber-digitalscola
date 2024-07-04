@@ -1,7 +1,11 @@
-Feature: The Internet Guinea Pig Website
+@checkout
+Feature: Checkout
 
-  Scenario Outline: As a user, I can log into the secure area
+  Background:
+    Given I am on the login page
 
+  @checkout_positive
+  Scenario Outline: As a user, I can checkout the item into a cart
     Given I am on the login page
     When I login with <username> and <password>
     Then I should see a home item with the name <message>

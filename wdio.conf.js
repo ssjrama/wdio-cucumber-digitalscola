@@ -109,7 +109,7 @@ export const config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'cucumber',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -252,8 +252,16 @@ export const config = {
      * @param {number}             result.duration  duration of scenario in milliseconds
      * @param {object}             context          Cucumber World object
      */
-    // afterStep: function (step, scenario, result, context) {
-    // },
+    afterStep: async function (
+        test,
+        context,
+        { error, result, duration, passed, retries }
+    ) {
+        // take a screenshot anytime a test fails and throws an error
+        if (error) {
+            await browser.saveScreenshot('file/image/screenshot.png');
+        }
+    },
     /**
      *
      * Runs after a Cucumber Scenario.
@@ -274,7 +282,7 @@ export const config = {
      */
     // afterFeature: function (uri, feature) {
     // },
-    
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {string} commandName hook command name
